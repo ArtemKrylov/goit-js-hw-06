@@ -7,10 +7,13 @@
     "Herbs",
     "Condiments",
   ];
-  const ingredientsHtmlString = ingredients
-    .map((ingredient) => `<li>${ingredient}</li>`)
-    .join("");
   const ingredientsListEl = document.querySelector("#ingredients");
+  const ingredientsLiElArray = ingredients.map((ingredient) => {
+    const newLi = document.createElement("li");
+    newLi.classList.add("item");
+    newLi.textContent = ingredient;
+    return newLi;
+  });
 
-  ingredientsListEl.insertAdjacentHTML("afterbegin", ingredientsHtmlString);
+  ingredientsListEl.append(...ingredientsLiElArray);
 })();
